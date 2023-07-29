@@ -1,0 +1,16 @@
+.weather-panel-container {
+  padding: 20px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  background-color: #f0f2f5;
+}
+
+.weather-panel-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.weather-panel-info {
+  font-size: 14px;
+}
