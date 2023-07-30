@@ -11,7 +11,7 @@ class CityStore {
   isLoading: boolean;
 
   constructor() {
-    this.city = "Moscow";
+    this.city = "";
 
     this.isLoading = false;
 
@@ -20,14 +20,16 @@ class CityStore {
 
   fetchCity = async () => {
     try {
+      this.isLoading = true;
       const response = await fetchCityByIP();
-      fetchCityWeather(response.data.city);
 
       runInAction(() => {
-        this.city = response.data.city;
+        this.city = response.data.city || "Moscow";
+        this.isLoading = false;
       });
     } catch (error) {
       console.error("Error fetching city:", error);
+      this.isLoading = false;
     }
   };
 }

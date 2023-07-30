@@ -29,11 +29,12 @@ const WeatherPanel: FC<WeatherPanelProps> = ({ city }) => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
 
   useEffect(() => {
-    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+    console.log(city);
+    // const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
 
-    axios.get(API_URL).then((response) => {
-      setWeatherData(response.data);
-    });
+    // axios.get(API_URL).then((response) => {
+    //   setWeatherData(response.data);
+    // });
   }, [city]);
 
   if (!weatherData) {
