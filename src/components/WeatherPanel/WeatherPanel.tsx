@@ -7,22 +7,13 @@ import cityStore from "../../store/CityStore";
 
 // Components
 import { Card } from "antd";
+// import WeatherMap from "./WeatherMap/WeatherMap";
+
+// Types
+import { WeatherData } from "../../typespaces/WeatherData";
 
 // Styles
-import "./weatherPanel.css";
-
-interface WeatherData {
-  main: {
-    temp: number;
-    humidity: number;
-  };
-  weather: {
-    description: string;
-  }[];
-  wind: {
-    speed: number;
-  };
-}
+import "./weatherPanel.scss";
 
 const WeatherPanel = () => {
   const { city } = cityStore;
@@ -50,6 +41,7 @@ const WeatherPanel = () => {
               <p>Humidity: {weatherData.main.humidity} %</p>
               <p>Wind Speed: {weatherData.wind.speed} m/s</p>
             </div>
+            {/* <WeatherMap city={city} weatherData={weatherData} /> */}
           </>
         )}
       </Card>

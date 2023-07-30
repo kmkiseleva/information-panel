@@ -2,8 +2,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 
 // Api
-import { fetchCityByIP, fetchCityWeather } from "../data/dataService";
-import axios from "axios";
+import { fetchCityByIP } from "../data/dataService";
 
 class CityStore {
   city: string;

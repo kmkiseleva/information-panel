@@ -4,9 +4,9 @@ import { observer } from "mobx-react-lite";
 
 // Api
 import {
-  fetchExchangeRates,
+  // fetchExchangeRates,
   fetchCryptocurrencies,
-  fetchCityWeather,
+  // fetchCityWeather,
 } from "./data/dataService";
 
 // Components
@@ -15,11 +15,12 @@ import Loader from "./components/Loader/Loader";
 import WeatherPanel from "./components/WeatherPanel/WeatherPanel";
 
 // Stores
-import exchangeRatesStore from "./store/ExchangeRatesStore";
+// import exchangeRatesStore from "./store/ExchangeRatesStore";
 import cityStore from "./store/CityStore";
 
 // Styles
-import "./App.css";
+import "./App.scss";
+import "react-leaflet-markercluster/dist/styles.min.css";
 
 const App: FC = observer(() => {
   const { isLoading, fetchCity } = cityStore;

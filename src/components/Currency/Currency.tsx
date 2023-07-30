@@ -9,7 +9,7 @@ import { List, Typography } from "antd";
 import exchangeRatesStore from "../../store/ExchangeRatesStore";
 
 // Styles
-import "./currency.css";
+import "./currency.scss";
 
 const Currency: FC = () => {
   const { rates, cryptocurrencies } = exchangeRatesStore;
