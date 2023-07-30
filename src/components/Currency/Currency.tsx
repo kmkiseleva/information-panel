@@ -9,14 +9,14 @@ import { List, Typography } from "antd";
 import exchangeRatesStore from "../../store/ExchangeRatesStore";
 
 // Styles
-import "./App.css";
+import "./currency.css";
 
 const Currency: FC = () => {
   const { rates, cryptocurrencies } = exchangeRatesStore;
 
   return (
     <div className="currency-container">
-      <div className="exchange-rates">
+      <div className="rates">
         <Typography.Title level={2}>Exchange Rates:</Typography.Title>
         <List>
           {Object.entries(rates).map(([currency, rate]) => (
@@ -28,7 +28,7 @@ const Currency: FC = () => {
           ))}
         </List>
       </div>
-      <div className="exchange-rates">
+      <div className="rates">
         <Typography.Title level={2}>Cryptocurrencies:</Typography.Title>
         <List>
           {Object.entries(cryptocurrencies).map(([symbol, price]) => (

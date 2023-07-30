@@ -10,8 +10,8 @@ import {
 } from "./data/dataService";
 
 // Components
+import Currency from "./components/Currency/Currency";
 import Loader from "./components/Loader/Loader";
-import { List, Spin, Typography } from "antd";
 import WeatherPanel from "./components/WeatherPanel/WeatherPanel";
 
 // Stores
@@ -45,36 +45,7 @@ const App: FC = observer(() => {
       {!isLoading && (
         <>
           <WeatherPanel city={city} />
-          <div className="currency-container">
-            <div className="exchange-rates">
-              <Typography.Title level={2}>Exchange Rates:</Typography.Title>
-              <List>
-                {Object.entries(exchangeRatesStore.rates).map(
-                  ([currency, rate]) => (
-                    <List.Item key={rate}>
-                      <Typography.Text>
-                        {currency}: {rate}
-                      </Typography.Text>
-                    </List.Item>
-                  )
-                )}
-              </List>
-            </div>
-            <div className="exchange-rates">
-              <Typography.Title level={2}>Cryptocurrencies:</Typography.Title>
-              <List>
-                {Object.entries(exchangeRatesStore.cryptocurrencies).map(
-                  ([symbol, price]) => (
-                    <List.Item key={price}>
-                      <Typography.Text>
-                        {symbol}: ${price}
-                      </Typography.Text>
-                    </List.Item>
-                  )
-                )}
-              </List>
-            </div>
-          </div>
+          <Currency />
         </>
       )}
     </>

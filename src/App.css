@@ -11,27 +11,3 @@
   width: 100%;
   z-index: 2;
 }
-
-.currency-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 270px 20px 0;
-  /* background-image: url(./assets/monety.jpg);
-  background-position: center; */
-}
-
-/* .app-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 0;
-} */
-
-.exchange-rates {
-  margin-bottom: 20px;
-}
