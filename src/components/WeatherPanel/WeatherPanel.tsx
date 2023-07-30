@@ -1,16 +1,15 @@
 // Core
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+
+// Stores
+import cityStore from "../../store/CityStore";
 
 // Components
 import { Card } from "antd";
 
 // Styles
 import "./weatherPanel.css";
-
-interface WeatherPanelProps {
-  city: string;
-}
 
 interface WeatherData {
   main: {
@@ -25,36 +24,34 @@ interface WeatherData {
   };
 }
 
-const WeatherPanel: FC<WeatherPanelProps> = ({ city }) => {
+const WeatherPanel = () => {
+  const { city } = cityStore;
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
 
   useEffect(() => {
-    console.log(city);
-    // const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
-
-    // axios.get(API_URL).then((response) => {
-    //   setWeatherData(response.data);
-    // });
+    if (city) {
+      const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+      axios.get(API_URL).then((response) => {
+        setWeatherData(response.data);
+      });
+    }
   }, [city]);
-
-  if (!weatherData) {
-    return <div>Loading...</div>;
-  }
-
-  const { temp, humidity } = weatherData.main;
-  const weatherDescription = weatherData.weather[0].description;
-  const windSpeed = weatherData.wind.speed;
 
   return (
     <div className="weather-panel">
       <Card className="weather-panel-container">
-        <div className="weather-panel-title">{city}</div>
-        <div className="weather-panel-info">
-          <p>Temperature: {temp} °C</p>
-          <p>Weather: {weatherDescription}</p>
-          <p>Humidity: {humidity} %</p>
-          <p>Wind Speed: {windSpeed} m/s</p>
-        </div>
+        {(!city || !weatherData) && <div>No data...</div>}
+        {city && weatherData && (
+          <>
+            <div className="weather-panel-title">{city}</div>
+            <div className="weather-panel-info">
+              <p>Temperature: {weatherData.main.temp} °C</p>
+              <p>Weather: {weatherData.weather[0].description}</p>
+              <p>Humidity: {weatherData.main.humidity} %</p>
+              <p>Wind Speed: {weatherData.wind.speed} m/s</p>
+            </div>
+          </>
+        )}
       </Card>
     </div>
   );

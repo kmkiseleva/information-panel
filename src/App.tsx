@@ -22,7 +22,7 @@ import cityStore from "./store/CityStore";
 import "./App.css";
 
 const App: FC = observer(() => {
-  const { isLoading, city, fetchCity } = cityStore;
+  const { isLoading, fetchCity } = cityStore;
 
   useEffect(() => {
     fetchCity();
@@ -44,7 +44,7 @@ const App: FC = observer(() => {
       {isLoading && <Loader />}
       {!isLoading && (
         <>
-          <WeatherPanel city={city} />
+          <WeatherPanel />
           <Currency />
         </>
       )}

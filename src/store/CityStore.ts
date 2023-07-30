@@ -24,7 +24,7 @@ class CityStore {
       const response = await fetchCityByIP();
 
       runInAction(() => {
-        this.city = response.data.city || "Moscow";
+        this.city = response.city || "Moscow";
         this.isLoading = false;
       });
     } catch (error) {
