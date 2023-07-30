@@ -46,15 +46,17 @@ const WeatherPanel: FC<WeatherPanelProps> = ({ city }) => {
   const windSpeed = weatherData.wind.speed;
 
   return (
-    <Card className="weather-panel-container">
-      <div className="weather-panel-title">{city}</div>
-      <div className="weather-panel-info">
-        <p>Temperature: {temp} °C</p>
-        <p>Weather: {weatherDescription}</p>
-        <p>Humidity: {humidity} %</p>
-        <p>Wind Speed: {windSpeed} m/s</p>
-      </div>
-    </Card>
+    <div className="weather-panel">
+      <Card className="weather-panel-container">
+        <div className="weather-panel-title">{city}</div>
+        <div className="weather-panel-info">
+          <p>Temperature: {temp} °C</p>
+          <p>Weather: {weatherDescription}</p>
+          <p>Humidity: {humidity} %</p>
+          <p>Wind Speed: {windSpeed} m/s</p>
+        </div>
+      </Card>
+    </div>
   );
 };
 
